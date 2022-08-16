@@ -8,6 +8,7 @@
 
     svg {
       margin-right: 8px;
+      cursor: pointer;
     }
 
     b {
@@ -34,9 +35,11 @@
 
     ul {
       overflow: hidden;
+      user-select: none;
       li {
         padding: 12px 20px;
         cursor: pointer;
+        user-select: none;
 
         &.active,
         &:hover {
