@@ -8,14 +8,12 @@ import Sort from "../components/Sort/Sort";
 function Home() {
   const [isLoaderPizza, setIsLoaderPizza] = useState(true)
   const [items, setItems] = useState([])
-  const [categoryId, setCategoryId] = useState(1)
-  const [sortId, setSortId] = useState(0)
-  // const sortArr = ['rating', 'price', 'id']
+  const [categoryId, setCategoryId] = useState(0)
+  const [sortId, setSortId] = useState({name: 'популярности', sortProperty: 'rating'})
 
   useEffect(() => {
     setIsLoaderPizza(true)
-    // axios.get(`https://62fb49efe4bcaf535180e06c.mockapi.io/items?category=${categoryId}&sortBy=${sortArr[sortId]}`)
-    axios.get(`https://62fb49efe4bcaf535180e06c.mockapi.io/items?category=${categoryId}`)
+    axios.get(`https://62fb49efe4bcaf535180e06c.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortId.sortProperty.replace('-', '')}&order=${sortId.sortProperty.includes('-') ? 'asc' : 'desc'}`)
       .then(response => {
         setItems(response.data)
         setIsLoaderPizza(false)
