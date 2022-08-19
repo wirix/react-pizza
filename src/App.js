@@ -5,16 +5,18 @@ import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Cart from './pages/Cart'
+import { useState } from 'react'
 
 function App(props) {
+  const [searchValue, setSearchValue] = useState('')
 
   return (
     <HashRouter>
       <div className="wrapper">
-        <Header />
+        <Header searchValue={searchValue} setSearchValue={setSearchValue}/>
         <div className="content">
           <Routes>
-            <Route path='/home' element={<Home />} />
+            <Route path='/home' element={<Home searchValue={searchValue} />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/' element={<Navigate to={'/home'} />} />
             <Route path='*' element={<NotFound />} />
