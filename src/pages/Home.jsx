@@ -6,6 +6,7 @@ import Pagination from "../components/Pagination/Pagination";
 import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Sort from "../components/Sort/Sort";
+import { useSelector, useDispatch } from 'react-redux'
 
 function Home() {
   const [isLoaderPizza, setIsLoaderPizza] = useState(true)
@@ -14,7 +15,11 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1)
   const [sortId, setSortId] = useState({ name: 'популярности (DESC)', sortProperty: 'rating'})
   const { searchValue } = useContext(SearchContext)
-  
+  // const setCategoryId = () => {}
+
+  // const categoryId = useSelector((state) => state.filter.categoryId)
+  // console.log(categoryId)
+
   useEffect(() => {
     setIsLoaderPizza(true)
     axios.get(`https://62fb49efe4bcaf535180e06c.mockapi.io/items?${categoryId > 0 ? `category=${categoryId}` : ''}&sortBy=${sortId.sortProperty.replace('-', '')}&order=${sortId.sortProperty.includes('-') ? 'asc' : 'desc'}&search=${searchValue ? searchValue : ''}&limit=4&page=${currentPage}`)
