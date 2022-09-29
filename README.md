@@ -1,4 +1,4 @@
-<b>Ссылка на сайт: </b> <a href='https://wirix.github.io/react-pizza'>https://wirix.github.io/react-pizza</a>
+<b>Ссылка на сайт: </b> <a target='_blank' href='https://wirix.github.io/react-pizza'>https://wirix.github.io/react-pizza</a>
 <div> По окончании курса изучено:
   <ul>
     <li>ReactJS 18</li>
