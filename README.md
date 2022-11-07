@@ -14,5 +14,3 @@
     <li>Code Splitting, React Loadable, useWhyDidYouUpdate</li>
   </ul>
 </div>
-<div>Смотрел курс около двух месяцев.</div>
-<div>Была проблема с коммитами, поэтому я закинул файлы вручную</div>
